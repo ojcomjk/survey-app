@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>인공지능 활용 설문조사</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>인공지능 활용 설문조사</h2>
+
+    <form id="survey">
+
+        <div class="question">
+            <h3>1. 인공지능을 사용해 본 적이 있나요?</h3>
+
+            <label>
+                <input type="radio" name="q1" value="예" required>
+                예
+            </label><br>
+
+            <label>
+                <input type="radio" name="q1" value="아니오">
+                아니오
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>2. 인공지능을 얼마나 자주 사용하나요?</h3>
+
+            <select name="q2" required>
+                <option value="">선택하세요</option>
+                <option value="매일">매일</option>
+                <option value="주 2~3회">주 2~3회</option>
+                <option value="거의 사용하지 않음">
+                    거의 사용하지 않음
+                </option>
+            </select>
+        </div>
+
+        <div class="question">
+            <h3>3. 인공지능의 장점은 무엇인가요?</h3>
+
+            <textarea name="q3"
+                      rows="4"
+                      style="width:100%"
+                      required></textarea>
+        </div>
+
+        <button type="submit">설문 제출</button>
+
+    </form>
+
+</div>
+
+<script>
+
+document.getElementById("survey")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    const result = {
+        question1: formData.get("q1"),
+        question2: formData.get("q2"),
+        question3: formData.get("q3")
+    };
+
+    console.log(result);
+
+    alert("설문 응답을 확인했습니다.");
+
+});
+
+</script>
+
+</body>
+</html>
